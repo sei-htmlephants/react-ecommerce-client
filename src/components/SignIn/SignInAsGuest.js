@@ -12,14 +12,10 @@ class SignIn extends Component {
     super()
 
     this.state = {
-      email: '',
-      password: ''
+      email: 'a@a',
+      password: 'a'
     }
   }
-
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  })
 
   onSignIn = event => {
     event.preventDefault()
@@ -45,40 +41,16 @@ class SignIn extends Component {
   }
 
   render () {
-    const { email, password } = this.state
-
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Sign In</h3>
           <Form onSubmit={this.onSignIn}>
-            <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control
-                required
-                type="email"
-                name="email"
-                value={email}
-                placeholder="Enter Email"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                required
-                name="password"
-                value={password}
-                type="password"
-                placeholder="Password"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
             <Button
               variant="primary"
               type="submit"
             >
-              Submit
+              Sign In As Guest
             </Button>
           </Form>
         </div>
