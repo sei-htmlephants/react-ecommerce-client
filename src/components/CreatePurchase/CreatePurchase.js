@@ -24,9 +24,9 @@ class CreatePurchase extends Component {
   onCreatePurchase = event => {
     event.preventDefault()
 
-    const { msgAlert, history } = this.props
+    const { msgAlert, history, user } = this.props
 
-    createPurchase(this.state)
+    createPurchase(this.state, user)
       .then(() => msgAlert({
         heading: 'Create Purchase Success',
         message: messages.createPurchaseSuccess,
