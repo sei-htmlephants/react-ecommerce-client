@@ -13,7 +13,8 @@ import SignInAsGuest from './components/SignIn/SignInAsGuest'
 import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
-import UpdatePurchase from './components/ShowPurchase/UpdatePurchase'
+import UpdatePurchase from './components/UpdatePurchase/UpdatePurchase'
+
 class App extends Component {
   constructor () {
     super()

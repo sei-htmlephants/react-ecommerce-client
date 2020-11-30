@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { indexPurchases } from '../../api/purchases'
 import messages from '../AutoDismissAlert/messages'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 class IndexPurchases extends Component {
   constructor () {
@@ -45,12 +47,28 @@ class IndexPurchases extends Component {
       purchaseJsx = 'No purchases to display :('
     } else {
       purchaseJsx = this.state.purchases.map(purchase => (
-        <div key={purchase._id}>
-          <Link to={'/purchases/' + purchase._id}>
-            <h3>{purchase.purchaseProduct}</h3>
-          </Link>
-          <p>${purchase.productPrice}</p>
-        </div>
+
+        <Card key={purchase._id} style={{ width: '24rem' }}>
+          <Card.Header>Your purchase on {purchase.createdAt.slice(0, -14)}</Card.Header>
+          <Card.Body>
+            <Card.Title>{purchase.purchaseProduct}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">${purchase.productPrice}</Card.Subtitle>
+            <Card.Text>
+            You last updated this purchase on: {purchase.createdAt.slice(0, -14)}
+            </Card.Text>
+            {/* <footer className="blockquote-footer">
+                You last updated this purchase on: {purchase.createdAt.slice(0, -14)}
+            </footer> */}
+            <Button variant="outline-primary" href={'/#/purchases/' + purchase._id}>See More</Button>
+          </Card.Body>
+        </Card>
+
+        // <div key={purchase._id}>
+        //   <Link to={'/purchases/' + purchase._id}>
+        //     <h3>{purchase.purchaseProduct}</h3>
+        //   </Link>
+        //   <p>${purchase.productPrice}</p>
+        // </div>
       ))
     }
 
