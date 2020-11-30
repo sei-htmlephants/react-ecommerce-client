@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-import { showPurchase, updatePurchase } from '../../api/purchase'
+import { showPurchase, updatePurchase } from '../../api/purchases'
 
 const PurchaseUpdate = (props) => {
   const [purchase, setPurchase] = useState({ purchaseProduct: '', purchasePrice: '' })
