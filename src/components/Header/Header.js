@@ -6,6 +6,8 @@ const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#change-password">change password</Nav.Link>
     <Nav.Link href="#sign-out">sign out</Nav.Link>
+    <Nav.Link href="#create-purchase">create purchase</Nav.Link>
+    <Nav.Link href="#index-purchases">index purchase</Nav.Link>
   </Fragment>
 )
 
@@ -25,7 +27,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      cameras-r-us
+      products r us
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
