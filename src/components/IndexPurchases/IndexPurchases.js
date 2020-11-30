@@ -52,7 +52,13 @@ class IndexPurchases extends Component {
           <Card.Header>Your purchase on {purchase.createdAt.slice(0, -14)}</Card.Header>
           <Card.Body>
             <Card.Title>{purchase.purchaseProduct}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{purchase.productPrice}</Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted">${purchase.productPrice}</Card.Subtitle>
+            <Card.Text>
+            You last updated this purchase on: {purchase.createdAt.slice(0, -14)}
+            </Card.Text>
+            {/* <footer className="blockquote-footer">
+                You last updated this purchase on: {purchase.createdAt.slice(0, -14)}
+            </footer> */}
             <Button variant="outline-primary" href={'/#/purchases/' + purchase._id}>See More</Button>
           </Card.Body>
         </Card>
