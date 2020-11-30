@@ -52,6 +52,8 @@ const ShowPurchase = (props) => {
         <div>
           <h2>{purchase.purchaseProduct}</h2>
           <h2>${purchase.productPrice}</h2>
+          {/* temp owner view for dev */}
+          <p>{purchase.owner}</p>
           <button onClick={handleDelete}>Delete</button>
           <Link to={'/purchase-update/' + purchase._id}>Update Purchase</Link>
         </div>
