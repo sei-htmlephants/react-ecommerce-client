@@ -46,9 +46,9 @@ class IndexPurchases extends Component {
     } else {
       purchaseJsx = this.state.purchases.map(purchase => (
         <div key={purchase._id}>
-          {/* <Link to={'/purchases/' + purchase._id}> */}
+          <Link to={'/purchases/' + purchase._id}>
           <h3>{purchase.purchaseProduct}</h3>
-          {/* </Link> */}
+          </Link>
           <p>${purchase.productPrice}</p>
         </div>
       ))
