@@ -37,9 +37,9 @@ export const showPurchase = (user, purchaseId) => {
   })
 }
 
-export const deletePurchase = (form, user) => {
+export const deletePurchase = (user, purchaseId) => {
   return axios({
-    url: apiUrl + '/purchases/' + form.purchaseId,
+    url: apiUrl + '/purchases/' + purchaseId,
     method: 'DELETE',
     headers: {
       'Authorization': `Token token=${user.token}`

@@ -32,11 +32,11 @@ const ShowPurchase = (props) => {
       .then(() => {
         msgAlert({
           heading: 'Purchase Deleted',
-          message: 'Back to the list of movies that exist',
+          message: 'Back to the list of purchases',
           variant: 'success'
         })
       })
-      .then(() => history.push('/movies'))
+      // .then(() => history.push('/purchases'))
       .catch(err => {
         msgAlert({
           heading: 'Deletion Failed',
