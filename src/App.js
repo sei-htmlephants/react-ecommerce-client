@@ -11,6 +11,7 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import SignInAsGuest from './components/SignIn/SignInAsGuest'
 import CreatePurchase from './components/CreatePurchase/CreatePurchase'
+import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 
 class App extends Component {
   constructor () {
@@ -22,6 +23,8 @@ class App extends Component {
   }
 
   setUser = user => this.setState({ user })
+
+  // setPurchases = purchases => this.setState({ purchases })
 
   clearUser = () => this.setState({ user: null })
 
@@ -72,6 +75,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/create-purchase' render={() => (
             <CreatePurchase msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/index-purchases' render={() => (
+            <IndexPurchases msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
