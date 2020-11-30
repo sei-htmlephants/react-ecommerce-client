@@ -13,7 +13,7 @@ import SignInAsGuest from './components/SignIn/SignInAsGuest'
 import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
-
+import UpdatePurchase from './components/ShowPurchase/UpdatePurchase'
 class App extends Component {
   constructor () {
     super()
@@ -82,6 +82,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/purchases/:purchaseId' render={() => (
             <ShowPurchase msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/update-purchase/:purchaseId' render={() => (
+            <UpdatePurchase msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

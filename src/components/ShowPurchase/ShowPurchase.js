@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { showPurchase } from '../../api/purchases'
 
 const ShowPurchase = (props) => {
   const [purchase, setPurchase] = useState(null)
   const { user, msgAlert, match } = props
-
   useEffect(() => {
     showPurchase(user, match.params.purchaseId)
       .then(res => {
@@ -33,6 +32,8 @@ const ShowPurchase = (props) => {
         <div>
           <h2>{purchase.purchaseProduct}</h2>
           <h2>${purchase.productPrice}</h2>
+          <button onClick={handleDelete}>Delete</button>
+          <Link to={'/purchase-update/' + purchaseId}>Update Purchase</Link>
         </div>
       ) : 'Loading...'}
     </div>

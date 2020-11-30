@@ -47,9 +47,9 @@ export const deletePurchase = (form, user) => {
   })
 }
 
-export const updatePurchase = (form, user) => {
+export const updatePurchase = (user, form, purchaseId) => {
   return axios({
-    url: apiUrl + '/purchases/',
+    url: apiUrl + '/purchases/' + purchaseId,
     method: 'PATCH',
     headers: {
       'Authorization': `Token token=${user.token}`
