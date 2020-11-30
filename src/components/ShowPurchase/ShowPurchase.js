@@ -5,7 +5,6 @@ import { showPurchase } from '../../api/purchases'
 const ShowPurchase = (props) => {
   const [purchase, setPurchase] = useState(null)
   const { user, msgAlert, match } = props
-
   useEffect(() => {
     showPurchase(user, match.params.purchaseId)
       .then(res => {
