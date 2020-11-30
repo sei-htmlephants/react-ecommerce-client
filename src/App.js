@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import SignInAsGuest from './components/SignIn/SignInAsGuest'
+import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 
 class App extends Component {
   constructor () {
@@ -68,6 +69,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-purchase' render={() => (
+            <CreatePurchase msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
