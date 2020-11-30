@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { showPurchase, updatePurchase } from '../../api/purchase'
 
 const PurchaseUpdate = (props) => {
-  const [movie, setPurchase] = useState({ title: '', director: '' })
+  const [purchase, setPurchase] = useState({ purchaseProduct: '', purchasePrice: '' })
   const [updated, setUpdated] = useState(false)
   const { user, msgAlert, match } = props
 
@@ -12,12 +12,12 @@ const PurchaseUpdate = (props) => {
     showPurchase(user, match.params.movieId)
       .then(res => setPurchase(res.data.purchase))
       .then(() => msgAlert({
-        heading: 'Movie Show Success',
+        heading: 'Purchase Show Success',
         message: 'Check it out',
         variant: 'success'
       }))
       .catch(err => msgAlert({
-        heading: 'Movie Show failed',
+        heading: 'Purchase Show failed',
         message: 'Error: ' + err.message,
         variant: 'danger'
       }))
@@ -25,9 +25,9 @@ const PurchaseUpdate = (props) => {
 
   const handleChange = (event) => {
     const updatedField = { [event.target.name]: event.target.value }
-    setPurchase(oldPurcase => {
-      const updatedMovie = { ...oldPurcase, ...updatedField }
-      return updatedMovie
+    setPurchase(oldPurchase => {
+      const updatedPurchase = { ...oldPurchase, ...updatedField }
+      return updatedPurchase
     })
   }
 
@@ -36,12 +36,6 @@ const PurchaseUpdate = (props) => {
 
     updatePurchase(user, purchase, match.params.purchaseId)
       .then(() => setUpdated(true))
-      // Instead of state + Redirect pairing, you can also use `history`
-      // as long as the component is exported `withRouter` or is passed the
-      // `history` prop explicitely (see the `App.js` file)
-      // This object can be destructured from the `props` as well.
-      // The `MovieShow` component uses this pattern for delete
-      // .then(() => props.history.push('/movie-show/' + match.params.movieId))
       .then(() => msgAlert({
         heading: 'Update successful',
         message: 'Nice work',
@@ -49,7 +43,7 @@ const PurchaseUpdate = (props) => {
       }))
       .catch(err => msgAlert({
         heading: 'Update failed',
-        message: 'WhOOPs ' + err.message,
+        message: 'Error Code: ' + err.message,
         variant: 'danger'
       }))
   }
@@ -62,21 +56,21 @@ const PurchaseUpdate = (props) => {
 
   return (
     <React.Fragment>
-      <h1>Update Movie</h1>
+      <h1>Update Purchase Information</h1>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Movie Title Here"
-          value={movie.title}
+          placeholder="Purchased Product"
+          value={purchase.purchaseProduct}
           onChange={handleChange}
-          name="title"
+          name="purchaseProduct"
         />
         <input
-          placeholder="Movie Director Here"
-          value={movie.director}
+          placeholder="Price Paid"
+          value={purchase.purchasePrice}
           onChange={handleChange}
-          name="director"
+          name="purchasePrice"
         />
-        <button type="submit">Update Movie</button>
+        <button type="submit">Update Purchase</button>
       </form>
     </React.Fragment>
   )
