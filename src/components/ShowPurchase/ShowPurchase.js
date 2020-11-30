@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { showPurchase } from '../../api/purchases'
 
-const showPurchase = (props) => {
+const ShowPurchase = (props) => {
   const [purchase, setPurchase] = useState(null)
-  const { user, msgAlert, match, history } = props
-  
+  const { user, msgAlert, match } = props
+
   useEffect(() => {
     showPurchase(user, match.params.purchaseId)
       .then(res => {
+        console.log(res)
         setPurchase(res.data.purchase)
       })
       .then(() => {
         msgAlert({
           heading: 'Show Purchase Success',
-          message: `Here's your purchase!`,
+          message: 'Here\'s your purchase!',
           variant: 'success'
         })
       })
@@ -28,7 +29,7 @@ const showPurchase = (props) => {
   }, [])
   return (
     <div>
-      {movie ? (
+      {purchase ? (
         <div>
           <h2>{purchase.purchaseProduct}</h2>
           <h2>${purchase.purchasePrice}</h2>
