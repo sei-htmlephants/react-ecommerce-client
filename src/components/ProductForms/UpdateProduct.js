@@ -50,7 +50,7 @@ const ProductUpdate = (props) => {
 
   if (updated) {
     return (
-      <Redirect to={`/product/${match.params.productId}`} />
+      <Redirect to={`/products/${match.params.productId}`} />
     )
   }
 
@@ -64,11 +64,19 @@ const ProductUpdate = (props) => {
           onChange={handleChange}
           name="productName"
         />
+
         <input
-          placeholder="Product Price"
-          value={product.productPrice}
+          placeholder="Enter product's description"
+          value={product.productDescription}
           onChange={handleChange}
-          name="productPrice"
+          name="productDescription"
+        />
+
+        <input
+          placeholder="Product Image"
+          value={product.productImages}
+          onChange={handleChange}
+          name="productImages"
         />
         <button type="submit">Update Product</button>
       </form>
