@@ -16,6 +16,7 @@ const PurchaseUpdate = (props) => {
         message: 'Check it out',
         variant: 'success'
       }))
+      // .then(() => history.push('/purchases'))
       .catch(err => msgAlert({
         heading: 'Purchase Show failed',
         message: 'Error: ' + err.message,
@@ -50,7 +51,7 @@ const PurchaseUpdate = (props) => {
 
   if (updated) {
     return (
-      <Redirect to={`/purchase/${match.params.id}`} />
+      <Redirect to={`/purchases/${match.params.purchaseId}`} />
     )
   }
 
@@ -64,12 +65,12 @@ const PurchaseUpdate = (props) => {
           onChange={handleChange}
           name="purchaseProduct"
         />
-        <input
+        {/* <input
           placeholder="Price Paid"
           value={purchase.purchasePrice}
           onChange={handleChange}
           name="purchasePrice"
-        />
+        /> */}
         <button type="submit">Update Purchase</button>
       </form>
     </React.Fragment>

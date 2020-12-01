@@ -85,11 +85,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/index-purchases' render={() => (
             <IndexPurchases msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/purchases/:purchaseId' render={() => (
-            <ShowPurchase msgAlert={this.msgAlert} user={user} />
+          <AuthenticatedRoute user={user} path='/purchases/:purchaseId' render={({ match }) => (
+            <ShowPurchase msgAlert={this.msgAlert} user={user} match={match} />
           )} />
-          <AuthenticatedRoute user={user} path='/update-purchase/:purchaseId' render={() => (
-            <UpdatePurchase msgAlert={this.msgAlert} user={user} />
+          <AuthenticatedRoute user={user} path='/purchase-update/:purchaseId' render={({ match, history }) => (
+            <UpdatePurchase msgAlert={this.msgAlert} user={user} match={match} history={history}/>
           )} />
 
           <AuthenticatedRoute user={user} path='/create-product' render={() => (
@@ -98,11 +98,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/index-products' render={() => (
             <IndexProduct msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/products/:productId' render={() => (
-            <ShowProduct msgAlert={this.msgAlert} user={user} />
+          <AuthenticatedRoute user={user} path='/products/:productId' render={({ match }) => (
+            <ShowProduct msgAlert={this.msgAlert} user={user} match={match} />
           )} />
-          <AuthenticatedRoute user={user} path='/product-update/:productId' render={() => (
-            <UpdateProduct msgAlert={this.msgAlert} user={user} />
+          <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
+            <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
           )} />
         </main>
       </Fragment>
