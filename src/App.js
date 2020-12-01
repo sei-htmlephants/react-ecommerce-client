@@ -105,7 +105,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
             <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
           )} />
-          <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
+          <AuthenticatedRoute user={user} path='/home' render={({ match, history }) => (
             <HomePage msgAlert={this.msgAlert} user={user} match={match} history={history} />
           )} />
         </main>

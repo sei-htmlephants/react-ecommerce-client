@@ -46,11 +46,9 @@ class HomePage extends Component {
         <Card key= {product._id} style={{ width: '24rem' }}>
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the cards content.
-            </Card.Text>
+            <Card.Subtitle className="mb-2 text-muted">${product.productPrice}</Card.Subtitle>
+            <Card.Title>{product.productName}</Card.Title>
+            <Card.Text>{product.productDescription}</Card.Text>
             <Button variant="primary">Go somewhere</Button>
           </Card.Body>
         </Card>
