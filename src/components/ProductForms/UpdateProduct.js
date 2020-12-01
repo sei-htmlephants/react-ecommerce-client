@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-import { showPurchase, updatePurchase } from '../../api/purchases'
+import { showProduct, updateProduct } from '../../api/products'
 
-const PurchaseUpdate = (props) => {
-  const [purchase, setPurchase] = useState({ purchaseProduct: '', purchasePrice: '' })
+const ProductUpdate = (props) => {
+  const [product, setProduct] = useState({ productProduct: '', productPrice: '' })
   const [updated, setUpdated] = useState(false)
   const { user, msgAlert, match } = props
 
   useEffect(() => {
     // show request
-    showPurchase(user, match.params.purchaseId)
-      .then(res => setPurchase(res.data.purchase))
+    showProduct(user, match.params.productId)
+      .then(res => setProduct(res.data.product))
       .then(() => msgAlert({
-        heading: 'Purchase Show Success',
+        heading: 'Product Show Success',
         message: 'Check it out',
         variant: 'success'
       }))
-      // .then(() => history.push('/purchases'))
       .catch(err => msgAlert({
-        heading: 'Purchase Show failed',
+        heading: 'Product Show failed',
         message: 'Error: ' + err.message,
         variant: 'danger'
       }))
@@ -26,16 +25,16 @@ const PurchaseUpdate = (props) => {
 
   const handleChange = (event) => {
     const updatedField = { [event.target.name]: event.target.value }
-    setPurchase(oldPurchase => {
-      const updatedPurchase = { ...oldPurchase, ...updatedField }
-      return updatedPurchase
+    setProduct(oldProduct => {
+      const updatedProduct = { ...oldProduct, ...updatedField }
+      return updatedProduct
     })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    updatePurchase(user, purchase, match.params.purchaseId)
+    updateProduct(user, product, match.params.productId)
       .then(() => setUpdated(true))
       .then(() => msgAlert({
         heading: 'Update successful',
@@ -51,30 +50,38 @@ const PurchaseUpdate = (props) => {
 
   if (updated) {
     return (
-      <Redirect to={`/purchases/${match.params.purchaseId}`} />
+      <Redirect to={`/products/${match.params.productId}`} />
     )
   }
 
   return (
     <React.Fragment>
-      <h1>Update Purchase Information</h1>
+      <h1>Update Product Information</h1>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Purchased Product"
-          value={purchase.purchaseProduct}
+          placeholder="Product"
+          value={product.productName}
           onChange={handleChange}
-          name="purchaseProduct"
+          name="productName"
         />
-        {/* <input
-          placeholder="Price Paid"
-          value={purchase.purchasePrice}
+
+        <input
+          placeholder="Enter product's description"
+          value={product.productDescription}
           onChange={handleChange}
-          name="purchasePrice"
-        /> */}
-        <button type="submit">Update Purchase</button>
+          name="productDescription"
+        />
+
+        <input
+          placeholder="Product Image"
+          value={product.productImages}
+          onChange={handleChange}
+          name="productImages"
+        />
+        <button type="submit">Update Product</button>
       </form>
     </React.Fragment>
   )
 }
 
-export default PurchaseUpdate
+export default ProductUpdate
