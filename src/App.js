@@ -14,6 +14,7 @@ import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
 import UpdatePurchase from './components/UpdatePurchase/UpdatePurchase'
+import CreateProduct from '.components/ProductForms/CreateProduct'
 
 class App extends Component {
   constructor () {
@@ -86,6 +87,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/update-purchase/:purchaseId' render={() => (
             <UpdatePurchase msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-product' render={() => (
+            <CreateProduct msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

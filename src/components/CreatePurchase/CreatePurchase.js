@@ -62,7 +62,7 @@ class CreatePurchase extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Form.Group controlId="password">
+            <Form.Group controlId="productPrice">
               <Form.Label>Product Price</Form.Label>
               <Form.Control
                 required
