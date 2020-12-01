@@ -9,7 +9,7 @@ const PurchaseUpdate = (props) => {
 
   useEffect(() => {
     // show request
-    showPurchase(user, match.params.movieId)
+    showPurchase(user, match.params.purchaseId)
       .then(res => setPurchase(res.data.purchase))
       .then(() => msgAlert({
         heading: 'Purchase Show Success',

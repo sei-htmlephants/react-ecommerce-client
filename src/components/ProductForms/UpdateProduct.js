@@ -9,7 +9,7 @@ const ProductUpdate = (props) => {
 
   useEffect(() => {
     // show request
-    showProduct(user, match.params.movieId)
+    showProduct(user, match.params.productId)
       .then(res => setProduct(res.data.product))
       .then(() => msgAlert({
         heading: 'Product Show Success',

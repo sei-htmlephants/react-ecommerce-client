@@ -52,7 +52,7 @@ const ShowProduct = (props) => {
           <h2>${product.productPrice}</h2>
           <p>{product.owner}</p>
           <button onClick={handleDelete}>Delete</button>
-          <Link to={'/product-update' + product._id}>Update Product</Link>
+          <Link to={'/product-update/' + product._id}>Update Product</Link>
         </div>
       ) : 'Loading...'}
     </div>

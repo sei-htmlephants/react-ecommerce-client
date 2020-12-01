@@ -15,6 +15,9 @@ import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
 import UpdatePurchase from './components/UpdatePurchase/UpdatePurchase'
 import CreateProduct from './components/ProductForms/CreateProduct'
+import IndexProduct from './components/ProductForms/IndexProducts'
+import ShowProduct from './components/ProductForms/ShowProduct'
+import UpdateProduct from './components/ProductForms/UpdateProduct'
 
 class App extends Component {
   constructor () {
@@ -88,8 +91,18 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/update-purchase/:purchaseId' render={() => (
             <UpdatePurchase msgAlert={this.msgAlert} user={user} />
           )} />
+
           <AuthenticatedRoute user={user} path='/create-product' render={() => (
             <CreateProduct msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/index-products' render={() => (
+            <IndexProduct msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/products/:productId' render={() => (
+            <ShowProduct msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/product-update/:productId' render={() => (
+            <UpdateProduct msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
