@@ -18,6 +18,7 @@ import CreateProduct from './components/ProductForms/CreateProduct'
 import IndexProduct from './components/ProductForms/IndexProducts'
 import ShowProduct from './components/ProductForms/ShowProduct'
 import UpdateProduct from './components/ProductForms/UpdateProduct'
+import HomePage from './components/HomePage/HomePage'
 
 class App extends Component {
   constructor () {
@@ -103,6 +104,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
             <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
+          )} />
+          <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
+            <HomePage msgAlert={this.msgAlert} user={user} match={match} history={history} />
           )} />
         </main>
       </Fragment>
