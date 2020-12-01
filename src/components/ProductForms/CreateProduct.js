@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { createPurchase } from '../../api/purchases'
+import { CreateProduct } from '../../api/products'
 import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-class CreatePurchase extends Component {
+class CreateProduct extends Component {
   constructor () {
     super()
 
     this.state = {
-      purchaseProduct: '',
-      productPrice: ''
+        productName: '',
+        productDescription: '',
+        productPrice: '',
+        productClass: '',
+        productCatagory: '',
+        productImages: ''
     }
   }
 
@@ -21,22 +25,22 @@ class CreatePurchase extends Component {
     [event.target.name]: event.target.value
   })
 
-  onCreatePurchase = event => {
+  onCreateProduct = event => {
     event.preventDefault()
 
     const { msgAlert, history, user } = this.props
 
-    createPurchase(this.state, user)
+    createProduct(this.state, user)
       .then(() => msgAlert({
-        heading: 'Create Purchase Success',
-        message: messages.createPurchaseSuccess,
+        heading: 'Create Product Success',
+        message: messages.createProductSuccess,
         variant: 'success'
       }))
       .then(() => history.push('/'))
       .catch(error => {
-        this.setState({ purchaseProduct: '', productPrice: '' })
+        this.setState({ productName: '', productDescription: '', productPrice: '', productClass: '', productCategory: '', productImages: '' })
         msgAlert({
-          heading: 'Purchase Creation Failed with error: ' + error.message,
+          heading: 'Product Creation Failed, error: ' + error.message,
           message: messages.signUpFailure,
           variant: 'danger'
         })
@@ -44,20 +48,20 @@ class CreatePurchase extends Component {
   }
 
   render () {
-    const { purchaseProduct, productPrice } = this.state
+    const { createProduct, productPrice } = this.state
 
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Create Purchase</h3>
-          <Form onSubmit={this.onCreatePurchase}>
-            <Form.Group controlId="purchaseProduct">
+          <h3>Create Product</h3>
+          <Form onSubmit={this.onCreateProduct}>
+            <Form.Group controlId="createProduct">
               <Form.Label>Product Name</Form.Label>
               <Form.Control
                 required
                 type="text"
-                name="purchaseProduct"
-                value={purchaseProduct}
+                name="createProduct"
+                value={createProduct}
                 placeholder="Enter product's name"
                 onChange={this.handleChange}
               />
@@ -86,4 +90,4 @@ class CreatePurchase extends Component {
   }
 }
 
-export default withRouter(CreatePurchase)
+export default withRouter(CreateProduct)
