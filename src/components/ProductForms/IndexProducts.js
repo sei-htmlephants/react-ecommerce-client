@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { createPurchase } from '../../api/purchases'
 import { indexProducts } from '../../api/products'
+import { createPurchase } from '../../api/purchases'
 import messages from '../AutoDismissAlert/messages'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+// import HiddenCreatePurchase from '../CreatePurchase/HiddenCreatePurchase'
 
 class IndexProducts extends Component {
   constructor () {
@@ -14,6 +15,34 @@ class IndexProducts extends Component {
     this.state = {
       products: null
     }
+  }
+
+  handleChange = event => this.setState({
+    [event.target.name]: event.target.value
+  })
+
+  onCreatePurchase = event => {
+    event.preventDefault()
+
+    const { msgAlert, history, user } = this.props
+
+    createPurchase(this.state, user)
+      .then(() => {
+        msgAlert({
+          heading: 'Create Purchase Success',
+          message: messages.createPurchaseSuccess,
+          variant: 'success'
+        })
+      })
+      .then(() => history.push('/'))
+      .catch(error => {
+        this.setState({ purchaseProduct: '', productPrice: '' })
+        msgAlert({
+          heading: 'Purchase Creation Failed with error: ' + error.message,
+          message: messages.signUpFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   componentDidMount () {
@@ -41,28 +70,6 @@ class IndexProducts extends Component {
       })
   }
 
-  onCreatePurchase = event => {
-    event.preventDefault()
-
-    const { msgAlert, history, user } = this.props
-
-    createPurchase(this.state, user)
-      .then(() => msgAlert({
-        heading: 'Create Purchase Success',
-        message: messages.createPurchaseSuccess,
-        variant: 'success'
-      }))
-      .then(() => history.push('/'))
-      .catch(error => {
-        this.setState({ purchaseProduct: '', productPrice: '' })
-        msgAlert({
-          heading: 'Purchase Creation Failed with error: ' + error.message,
-          message: messages.signUpFailure,
-          variant: 'danger'
-        })
-      })
-  }
-
   render () {
     let productJsx
     if (!this.state.products) {
@@ -84,37 +91,44 @@ class IndexProducts extends Component {
                 You last updated this product on: {product.createdAt.slice(0, -14)}
             </footer> */}
             <Button variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
+
             <Form onSubmit={this.onCreatePurchase}>
               <Form.Group controlId="purchaseProduct">
-                {/* <Form.Label>Product Name</Form.Label> */}
                 <Form.Control
                   required
                   type="hidden"
                   name="purchaseProduct"
-                  // value={product.productName}
-                  value="hello"
+                  value='asdf'
                   placeholder="Enter product's name"
                   onChange={this.handleChange}
                 />
               </Form.Group>
               <Form.Group controlId="productPrice">
-                {/* <Form.Label>Product Price</Form.Label> */}
                 <Form.Control
                   required
                   name="productPrice"
-                  // value={product.productPrice}
-                  value="1234"
+                  value='123'
                   type="hidden"
                   placeholder="Enter product's price"
                   onChange={this.handleChange}
                 />
               </Form.Group>
               <Button
-                variant="primary"
+                variant="success"
                 type="submit"
-              >Buy</Button>
+              >
+              Buy
+              </Button>
             </Form>
-            {/* <Button variant="outline-primary" onClick={this.buyProduct(product._id)}>Buy</Button> */}
+
+            {/*
+            <HiddenCreatePurchase
+              user={this.props.user}
+              msgAlert={this.props.msgAlert}
+              productPrice={product.productPrice}
+              purchaseProduct={product.productName}
+            /> */}
+
           </Card.Body>
         </Card>
 
