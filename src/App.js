@@ -14,7 +14,7 @@ import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
 import UpdatePurchase from './components/UpdatePurchase/UpdatePurchase'
-import CreateProduct from '.components/ProductForms/CreateProduct'
+import CreateProduct from './components/ProductForms/CreateProduct'
 
 class App extends Component {
   constructor () {

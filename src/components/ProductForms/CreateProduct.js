@@ -67,7 +67,7 @@ class CreateProduct extends Component {
               />
             </Form.Group>
             <Form.Group controlId="productDescription">
-              <Form.Label>Product Price</Form.Label>
+              <Form.Label>Product Description</Form.Label>
               <Form.Control
                 required
                 name="productDescription"
@@ -90,7 +90,7 @@ class CreateProduct extends Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="productClass">
+            {/* <Form.Group controlId="productClass">
               <Form.Label>Product Class</Form.Label>
               <Form.Control
                 required
@@ -100,10 +100,24 @@ class CreateProduct extends Component {
                 placeholder="Enter product's class"
                 onChange={this.handleChange}
               />
+            </Form.Group> */}
+
+            <Form.Group controlId="productClass">
+              <Form.Label>Product Class</Form.Label>
+              <Form.Control
+                as="select"
+                required
+                name="productClass"
+                value={productClass}
+                onChange={this.handleChange}
+              >
+                <option>market</option>
+                <option>official</option>
+              </Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="productCatagory">
-              <Form.Label>Product Price</Form.Label>
+            {/* <Form.Group controlId="productCatagory">
+              <Form.Label>Product Catagory</Form.Label>
               <Form.Control
                 required
                 name="productCatagory"
@@ -112,6 +126,21 @@ class CreateProduct extends Component {
                 placeholder="Enter product's catagory"
                 onChange={this.handleChange}
               />
+            </Form.Group> */}
+
+            <Form.Group controlId="productCatagory">
+              <Form.Label>Product Catagory</Form.Label>
+              <Form.Control
+                as="select"
+                required
+                name="productCatagory"
+                value={productCatagory}
+                onChange={this.handleChange}
+              >
+                <option>Cameras</option>
+                <option>Prints</option>
+                <option>Accessories</option>
+              </Form.Control>
             </Form.Group>
 
             <Form.Group controlId="productImages">
