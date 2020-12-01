@@ -38,10 +38,10 @@ class CreateProduct extends Component {
       }))
       .then(() => history.push('/'))
       .catch(error => {
-        this.setState({ productName: '', productDescription: '', productPrice: '', productClass: '', productCategory: '', productImages: '' })
+        this.setState({ productName: '', productDescription: '', productPrice: '', productClass: '', productCatagory: '', productImages: '' })
         msgAlert({
           heading: 'Product Creation Failed, error: ' + error.message,
-          message: messages.signUpFailure,
+          message: messages.createProductFailure,
           variant: 'danger'
         })
       })
@@ -90,7 +90,7 @@ class CreateProduct extends Component {
               />
             </Form.Group>
 
-            {/* <Form.Group controlId="productClass">
+            <Form.Group controlId="productClass">
               <Form.Label>Product Class</Form.Label>
               <Form.Control
                 required
@@ -100,23 +100,25 @@ class CreateProduct extends Component {
                 placeholder="Enter product's class"
                 onChange={this.handleChange}
               />
-            </Form.Group> */}
+            </Form.Group>
 
-            <Form.Group controlId="productClass">
+            {/* <Form.Group controlId="productClass">
               <Form.Label>Product Class</Form.Label>
               <Form.Control
                 as="select"
+                custom
+                onChange={this.handleChange.bind(this)}
                 required
                 name="productClass"
                 value={productClass}
-                onChange={this.handleChange}
+                // onChange={this.handleChange}
               >
-                <option>market</option>
-                <option>official</option>
+                <option value="market">Market</option>
+                <option value="official">Official</option>
               </Form.Control>
-            </Form.Group>
+            </Form.Group> */}
 
-            {/* <Form.Group controlId="productCatagory">
+            <Form.Group controlId="productCatagory">
               <Form.Label>Product Catagory</Form.Label>
               <Form.Control
                 required
@@ -126,22 +128,25 @@ class CreateProduct extends Component {
                 placeholder="Enter product's catagory"
                 onChange={this.handleChange}
               />
-            </Form.Group> */}
+            </Form.Group>
 
-            <Form.Group controlId="productCatagory">
+            {/* <Form.Group controlId="productCatagory">
               <Form.Label>Product Catagory</Form.Label>
               <Form.Control
                 as="select"
+                custom
+                onChange={this.handleChange.bind(this)}
+
                 required
                 name="productCatagory"
                 value={productCatagory}
-                onChange={this.handleChange}
+                // onChange={this.handleChange}
               >
-                <option>Cameras</option>
-                <option>Prints</option>
-                <option>Accessories</option>
+                <option value="Cameras">Cameras</option>
+                <option value="Prints">Prints</option>
+                <option value="Accessories">Accessories</option>
               </Form.Control>
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="productImages">
               <Form.Label>Product Image</Form.Label>

@@ -38,7 +38,7 @@ const ShowProduct = (props) => {
       })
       .catch(err => {
         msgAlert({
-          heading: 'Deletion ',
+          heading: 'Deletion Failed',
           message: 'error:' + err.message,
           variant: 'danger'
         })
