@@ -7,6 +7,9 @@ import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+// const multer = require('multer')
+// const upload = multer({ dest: 'uploads/' })
+
 class CreateProduct extends Component {
   constructor () {
     super()
@@ -54,7 +57,7 @@ class CreateProduct extends Component {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Create Product</h3>
-          <Form onSubmit={this.onCreateProduct}>
+          <Form onSubmit={this.onCreateProduct} encType="multipart/form-data">
             <Form.Group controlId="productName">
               <Form.Label>Product Name</Form.Label>
               <Form.Control
@@ -154,7 +157,7 @@ class CreateProduct extends Component {
                 required
                 name="productImages"
                 value={productImages}
-                type="text"
+                type="file"
                 placeholder="Enter product's images"
                 onChange={this.handleChange}
               />
