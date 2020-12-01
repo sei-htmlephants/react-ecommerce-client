@@ -50,7 +50,7 @@ const ProductUpdate = (props) => {
 
   if (updated) {
     return (
-      <Redirect to={`/product/${match.params.id}`} />
+      <Redirect to={`/product/${match.params.productId}`} />
     )
   }
 
