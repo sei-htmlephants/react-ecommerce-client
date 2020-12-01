@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { showProduct, deleteProduct } from '../../api/products'
-// import productUpdate from '../UpdatePurchase/UpdatePurchase'
 
 const ShowProduct = (props) => {
   const [product, setProduct] = useState(null)
