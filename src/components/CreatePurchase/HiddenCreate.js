@@ -41,6 +41,7 @@ class HiddenCreatePurchase extends Component {
     const { msgAlert, history, user } = this.props
 
     if (user) {
+      console.log(this.props.user)
       createPurchase(this.props, user)
         .then(() => msgAlert({
           heading: 'Create Purchase Success',
@@ -56,7 +57,10 @@ class HiddenCreatePurchase extends Component {
             variant: 'danger'
           })
         })
-    } else if (!user) { history.push('/sign-in') }
+    } else if (!user) {
+      console.log(this.props.user)
+      // history.push('/sign-in')
+    }
   }
 
   render () {
