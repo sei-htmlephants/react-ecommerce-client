@@ -40,21 +40,23 @@ class HiddenCreatePurchase extends Component {
 
     const { msgAlert, history, user } = this.props
 
-    createPurchase(this.props, user)
-      .then(() => msgAlert({
-        heading: 'Create Purchase Success',
-        message: messages.createPurchaseSuccess,
-        variant: 'success'
-      }))
-      .then(() => history.push('/index-purchases'))
-      .catch(error => {
-        this.setState({ purchaseProduct: '', productPrice: '' })
-        msgAlert({
-          heading: 'Purchase Creation Failed with error: ' + error.message,
-          message: messages.signUpFailure,
-          variant: 'danger'
+    if (user) {
+      createPurchase(this.props, user)
+        .then(() => msgAlert({
+          heading: 'Create Purchase Success',
+          message: messages.createPurchaseSuccess,
+          variant: 'success'
+        }))
+        .then(() => history.push('/index-purchases'))
+        .catch(error => {
+          this.setState({ purchaseProduct: '', productPrice: '' })
+          msgAlert({
+            heading: 'Purchase Creation Failed with error: ' + error.message,
+            message: messages.signUpFailure,
+            variant: 'danger'
+          })
         })
-      })
+    } else if (!user) { history.push('/sign-in') }
   }
 
   render () {
