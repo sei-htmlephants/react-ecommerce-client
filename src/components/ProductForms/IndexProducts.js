@@ -6,8 +6,11 @@ import { createPurchase } from '../../api/purchases'
 import messages from '../AutoDismissAlert/messages'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-// import HiddenCreatePurchase from '../CreatePurchase/HiddenCreatePurchase'
+// import Form from 'react-bootstrap/Form'
+
+import HiddenCreate from '../CreatePurchase/HiddenCreate'
+
+import './ProductForms.scss'
 
 class IndexProducts extends Component {
   constructor () {
@@ -87,48 +90,13 @@ class IndexProducts extends Component {
             <Card.Text>
             You last updated this product on: {product.createdAt.slice(0, -14)}
             </Card.Text>
-            {/* <footer className="blockquote-footer">
-                You last updated this product on: {product.createdAt.slice(0, -14)}
-            </footer> */}
-            <Button variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
-
-            <Form onSubmit={this.onCreatePurchase}>
-              <Form.Group controlId="purchaseProduct">
-                <Form.Control
-                  required
-                  type="hidden"
-                  name="purchaseProduct"
-                  value='asdf'
-                  placeholder="Enter product's name"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="productPrice">
-                <Form.Control
-                  required
-                  name="productPrice"
-                  value='123'
-                  type="hidden"
-                  placeholder="Enter product's price"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Button
-                variant="success"
-                type="submit"
-              >
-              Buy
-              </Button>
-            </Form>
-
-            {/*
-            <HiddenCreatePurchase
+            <Button className="Button" variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
+            <HiddenCreate
               user={this.props.user}
               msgAlert={this.props.msgAlert}
               productPrice={product.productPrice}
               purchaseProduct={product.productName}
-            /> */}
-
+            />
           </Card.Body>
         </Card>
 
