@@ -89,7 +89,7 @@ class IndexProducts extends Component {
             <Card.Title>{product.productName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">${product.productPrice}</Card.Subtitle>
             <Card.Text>
-            You last updated this product on: {product.createdAt.slice(0, -14)}
+              {product.productDescription}
             </Card.Text>
             <Button className="Button" variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
             <HiddenCreate
