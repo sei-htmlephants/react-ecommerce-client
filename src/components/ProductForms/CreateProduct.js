@@ -155,7 +155,7 @@ class CreateProduct extends Component {
                 name="productImages"
                 value={productImages}
                 type="text"
-                placeholder="Enter product's images"
+                placeholder="Enter product's image URL"
                 onChange={this.handleChange}
               />
             </Form.Group>

@@ -15,7 +15,7 @@ export const createProduct = (form, user) => {
         productPrice: form.productPrice,
         productClass: form.productClass,
         productCatagory: form.productCatagory,
-        productImages: form.Images
+        productImages: form.productImages
       }
     }
   })
