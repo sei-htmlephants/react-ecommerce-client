@@ -60,7 +60,7 @@ class IndexProducts extends Component {
       })
 
       .then(() => msgAlert({
-        heading: 'Index Products Success',
+        // heading: 'Index Products Success',
         message: messages.indexProductsSuccess,
         variant: 'success'
       }))
