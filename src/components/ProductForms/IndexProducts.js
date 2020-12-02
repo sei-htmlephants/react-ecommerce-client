@@ -7,6 +7,7 @@ import messages from '../AutoDismissAlert/messages'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
+import CardColumns from 'react-bootstrap/CardColumns'
 
 import HiddenCreate from '../CreatePurchase/HiddenCreate'
 
@@ -82,22 +83,24 @@ class IndexProducts extends Component {
     } else {
       productJsx = this.state.products.map(product => (
 
-        <Card key={product._id} style={{ width: '24rem' }}>
-          <Card.Header>Your product on {product.createdAt.slice(0, -14)}</Card.Header>
+        <Card key={product._id} className="Card">
+          <Card.Img variant="top" src={product.productImages} />
           <Card.Body>
             <Card.Title>{product.productName}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">${product.productPrice}</Card.Subtitle>
             <Card.Text>
-            You last updated this product on: {product.createdAt.slice(0, -14)}
+              {product.productDescription}
             </Card.Text>
             <Button className="Button" variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
             <HiddenCreate
               user={this.props.user}
               msgAlert={this.props.msgAlert}
+              history={this.props.history}
               productPrice={product.productPrice}
               purchaseProduct={product.productName}
             />
           </Card.Body>
+          <Card.Footer>Updated on {product.createdAt.slice(0, -14)}</Card.Footer>
         </Card>
 
       ))
@@ -106,7 +109,10 @@ class IndexProducts extends Component {
     return (
       <div>
         <h1>Products List</h1>
-        {productJsx}
+        <CardColumns>
+          {productJsx}
+        </CardColumns>
+
       </div>
     )
   }

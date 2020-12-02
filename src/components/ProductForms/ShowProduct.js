@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { showProduct, deleteProduct } from '../../api/products'
+
+import Button from 'react-bootstrap/Button'
 
 const ShowProduct = (props) => {
   const [product, setProduct] = useState(null)
-  const { user, msgAlert, match } = props
+  const { user, msgAlert, match, history } = props
   useEffect(() => {
     showProduct(user, match.params.productId)
       .then(res => {
@@ -36,6 +38,7 @@ const ShowProduct = (props) => {
           variant: 'success'
         })
       })
+      .then(() => history.push('/index-products'))
       .catch(err => {
         msgAlert({
           heading: 'Deletion Failed',
@@ -51,8 +54,8 @@ const ShowProduct = (props) => {
           <h2>{product.productName}</h2>
           <h2>${product.productPrice}</h2>
           <p>{product.owner}</p>
-          <button onClick={handleDelete}>Delete</button>
-          <Link to={'/product-update/' + product._id}>Update Product</Link>
+          <Button onClick={handleDelete}>Delete</Button>
+          <Button href={'#/product-update/' + product._id}>Update Product</Button>
         </div>
       ) : 'Loading...'}
     </div>

@@ -36,7 +36,7 @@ class CreateProduct extends Component {
         message: messages.createProductSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/index-products'))
       .catch(error => {
         this.setState({ productName: '', productDescription: '', productPrice: '', productClass: '', productCatagory: '', productImages: '' })
         msgAlert({
@@ -155,7 +155,7 @@ class CreateProduct extends Component {
                 name="productImages"
                 value={productImages}
                 type="text"
-                placeholder="Enter product's images"
+                placeholder="Enter product's image URL"
                 onChange={this.handleChange}
               />
             </Form.Group>

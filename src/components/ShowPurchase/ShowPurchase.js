@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { showPurchase, deletePurchase } from '../../api/purchases'
+import Button from 'react-bootstrap/Button'
 
 const ShowPurchase = (props) => {
   const [purchase, setPurchase] = useState(null)
-  const { user, msgAlert, match } = props
+  const { user, msgAlert, match, history } = props
   useEffect(() => {
     showPurchase(user, match.params.purchaseId)
       .then(res => {
@@ -36,7 +37,7 @@ const ShowPurchase = (props) => {
           variant: 'success'
         })
       })
-      // .then(() => history.push('/purchases'))
+      .then(() => history.push('/index-purchases'))
       .catch(err => {
         msgAlert({
           heading: 'Deletion Failed',
@@ -52,10 +53,9 @@ const ShowPurchase = (props) => {
         <div>
           <h2>{purchase.purchaseProduct}</h2>
           <h2>${purchase.productPrice}</h2>
-          {/* temp owner view for dev */}
           <p>{purchase.owner}</p>
-          <button onClick={handleDelete}>Delete</button>
-          <Link to={'/purchase-update/' + purchase._id}>Update Purchase</Link>
+          <Button onClick={handleDelete}>Delete</Button>
+          <Button href={'#/purchase-update/' + purchase._id}>Update Purchase</Button>
         </div>
       ) : 'Loading...'}
     </div>

@@ -19,6 +19,7 @@ import IndexProduct from './components/ProductForms/IndexProducts'
 import ShowProduct from './components/ProductForms/ShowProduct'
 import UpdateProduct from './components/ProductForms/UpdateProduct'
 import StoreFront from './components/StoreFront/StoreFront'
+import CheckoutSuccess from './components/CreatePurchase/CheckoutSuccess'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,10 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <IndexProduct msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* <Route exact path='/' component={IndexProduct} /> */}
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -104,6 +109,10 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
             <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/checkout-success' render={() => (
+            <CheckoutSuccess />
           )} />
 
           <Route path='/store' render={() => (

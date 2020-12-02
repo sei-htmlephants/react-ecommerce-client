@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { loadStripe } from '@stripe/stripe-js'
 
 import { createPurchase } from '../../api/purchases'
 import messages from '../AutoDismissAlert/messages'
@@ -8,6 +9,8 @@ import messages from '../AutoDismissAlert/messages'
 import Button from 'react-bootstrap/Button'
 
 import './CreatePurchaseStyles.scss'
+
+const stripePromise = loadStripe('pk_test_axNq5LTsIJIZMPAlA6enqySi')
 
 class HiddenCreatePurchase extends Component {
   constructor () {
@@ -18,6 +21,24 @@ class HiddenCreatePurchase extends Component {
       productPrice: ''
     }
   }
+
+  redirectToSignIn = event => {
+    const { history } = this.props
+    history.push('/sign-in')
+  }
+
+  handleClick = async (event) => {
+    const stripe = await stripePromise
+    const response = await fetch('http://localhost:4741/create-session', {
+      method: 'POST'
+    })
+    const session = await response.json()
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id
+    })
+    if (result.error) {
+    }
+  };
 
   onCreatePurchase = event => {
     event.preventDefault()
@@ -42,12 +63,12 @@ class HiddenCreatePurchase extends Component {
   }
 
   render () {
-    const { purchaseProduct, productPrice } = this.props
-    // console.log('try 1', this.props.purchaseProduct, this.props.productPrice)
-    // console.log('try 2', purchaseProduct, productPrice)
+    const { purchaseProduct, productPrice, user } = this.props
+    let buyButtonJsx
 
-    return (
-      <form onSubmit={this.onCreatePurchase}>
+    if (!user) {
+      buyButtonJsx =
+      <form>
         <input
           required
           type="hidden"
@@ -62,11 +83,44 @@ class HiddenCreatePurchase extends Component {
         />
         <Button className="Button"
           variant="outline-success"
-          type="submit"
+          onClick={this.redirectToSignIn}
         >
-              Buy
+            Buy
         </Button>
+
       </form>
+    } else {
+      buyButtonJsx =
+      // <form onSubmit={this.handleClick}>
+      <form>
+        <input
+          required
+          type="hidden"
+          name="purchaseProduct"
+          value={purchaseProduct}
+        />
+        <input
+          required
+          name="productPrice"
+          value={productPrice}
+          type="hidden"
+        />
+        <Button className="Button"
+          variant="outline-success"
+          id="checkout-button"
+          role="link"
+          onClick={this.handleClick}
+        >
+            Buy
+        </Button>
+
+      </form>
+    }
+
+    return (
+      <div>
+        {buyButtonJsx}
+      </div>
     )
   }
 }

@@ -48,31 +48,6 @@ class StoreFront extends Component {
   }
 
   render () {
-    // let productJsx
-    // if (!this.state.products) {
-    //   productJsx = 'Loading...'
-    // } else if (this.state.products.length === 0) {
-    //   productJsx = 'No products to display :('
-    // } else {
-    //   productJsx = this.state.products.map(product => (
-
-    //     <Card key={product._id} style={{ width: '24rem' }}>
-    //       <Card.Header>Your product on {product.createdAt.slice(0, -14)}</Card.Header>
-    //       <Card.Body>
-    //         <Card.Title>{product.productName}</Card.Title>
-    //         <Card.Subtitle className="mb-2 text-muted">${product.productPrice}</Card.Subtitle>
-    //         <Card.Text>
-    //         You last updated this product on: {product.createdAt.slice(0, -14)}
-    //         </Card.Text><Button variant="outline-primary">See More</Button>
-    //         {/* <footer className="blockquote-footer">
-    //             You last updated this product on: {product.createdAt.slice(0, -14)}
-    //         </footer> */}
-    //         <Button variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
-    //       </Card.Body>
-    //     </Card>
-    //   ))
-    // }
-
     return (
       <div>
         <h1>Products List</h1>
