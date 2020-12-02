@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { indexProducts } from '../../api/products'
+import { createPurchase } from '../../api/purchases'
 import messages from '../AutoDismissAlert/messages'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+// import Form from 'react-bootstrap/Form'
+
+import HiddenCreate from '../CreatePurchase/HiddenCreate'
+
+import './ProductForms.scss'
 
 class IndexProducts extends Component {
   constructor () {
@@ -12,6 +18,34 @@ class IndexProducts extends Component {
     this.state = {
       products: null
     }
+  }
+
+  handleChange = event => this.setState({
+    [event.target.name]: event.target.value
+  })
+
+  onCreatePurchase = event => {
+    event.preventDefault()
+
+    const { msgAlert, history, user } = this.props
+
+    createPurchase(this.state, user)
+      .then(() => {
+        msgAlert({
+          heading: 'Create Purchase Success',
+          message: messages.createPurchaseSuccess,
+          variant: 'success'
+        })
+      })
+      .then(() => history.push('/'))
+      .catch(error => {
+        this.setState({ purchaseProduct: '', productPrice: '' })
+        msgAlert({
+          heading: 'Purchase Creation Failed with error: ' + error.message,
+          message: messages.signUpFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   componentDidMount () {
@@ -56,19 +90,16 @@ class IndexProducts extends Component {
             <Card.Text>
             You last updated this product on: {product.createdAt.slice(0, -14)}
             </Card.Text>
-            {/* <footer className="blockquote-footer">
-                You last updated this product on: {product.createdAt.slice(0, -14)}
-            </footer> */}
-            <Button variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
+            <Button className="Button" variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
+            <HiddenCreate
+              user={this.props.user}
+              msgAlert={this.props.msgAlert}
+              productPrice={product.productPrice}
+              purchaseProduct={product.productName}
+            />
           </Card.Body>
         </Card>
 
-        // <div key={product._id}>
-        //   <Link to={'/products/' + product._id}>
-        //     <h3>{product.productProduct}</h3>
-        //   </Link>
-        //   <p>${product.productPrice}</p>
-        // </div>
       ))
     }
 

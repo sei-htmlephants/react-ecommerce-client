@@ -21,13 +21,13 @@ export const createProduct = (form, user) => {
   })
 }
 
-export const indexProducts = user => {
+export const indexProducts = () => {
   return axios({
     url: apiUrl + '/products',
-    method: 'GET',
-    headers: {
-      'Authorization': `Token token=${user.token}`
-    }
+    method: 'GET'
+    // headers: {
+    //   'Authorization': `Token token=${user.token}`
+    // }
   })
 }
 
