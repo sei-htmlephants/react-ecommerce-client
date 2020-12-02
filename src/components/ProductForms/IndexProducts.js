@@ -95,6 +95,7 @@ class IndexProducts extends Component {
             <HiddenCreate
               user={this.props.user}
               msgAlert={this.props.msgAlert}
+              history={this.props.history}
               productPrice={product.productPrice}
               purchaseProduct={product.productName}
             />
