@@ -87,10 +87,11 @@ class HiddenCreatePurchase extends Component {
           type="submit"
           id="checkout-button"
           role="link"
-          // onClick={this.handleClick}
+          onClick={this.handleClick}
         >
               Buy
         </Button>
+
       </form>
     )
   }
