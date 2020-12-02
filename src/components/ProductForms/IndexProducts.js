@@ -59,11 +59,11 @@ class IndexProducts extends Component {
         this.setState({ products: res.data.products })
       })
 
-      .then(() => msgAlert({
-        // heading: 'Index Products Success',
-        message: messages.indexProductsSuccess,
-        variant: 'success'
-      }))
+    // .then(() => msgAlert({
+    //   heading: 'Index Products Success',
+    //   message: messages.indexProductsSuccess,
+    //   variant: 'success'
+    // }))
 
       .catch(error => {
         msgAlert({

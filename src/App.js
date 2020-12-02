@@ -18,7 +18,7 @@ import CreateProduct from './components/ProductForms/CreateProduct'
 import IndexProduct from './components/ProductForms/IndexProducts'
 import ShowProduct from './components/ProductForms/ShowProduct'
 import UpdateProduct from './components/ProductForms/UpdateProduct'
-import StoreFront from './components/StoreFront/StoreFront'
+// import StoreFront from './components/StoreFront/StoreFront'
 import CheckoutSuccess from './components/CreatePurchase/CheckoutSuccess'
 
 class App extends Component {
@@ -115,9 +115,9 @@ class App extends Component {
             <CheckoutSuccess />
           )} />
 
-          <Route path='/store' render={() => (
+          {/* <Route path='/store' render={() => (
             <StoreFront msgAlert={this.msgAlert} />
-          )} />
+          )} /> */}
         </main>
       </Fragment>
     )
