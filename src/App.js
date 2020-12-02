@@ -68,6 +68,7 @@ class App extends Component {
           {/* <Route exact-path='/' render={() => (
             <IndexProduct msgAlert={this.msgAlert} />
           )} /> */}
+          <IndexProduct msgAlert={this.msgAlert} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
