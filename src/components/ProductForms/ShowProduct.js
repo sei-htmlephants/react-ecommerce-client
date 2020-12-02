@@ -4,7 +4,7 @@ import { showProduct, deleteProduct } from '../../api/products'
 
 const ShowProduct = (props) => {
   const [product, setProduct] = useState(null)
-  const { user, msgAlert, match } = props
+  const { user, msgAlert, match, history } = props
   useEffect(() => {
     showProduct(user, match.params.productId)
       .then(res => {
@@ -36,6 +36,7 @@ const ShowProduct = (props) => {
           variant: 'success'
         })
       })
+      .then(() => history.push('/index-products'))
       .catch(err => {
         msgAlert({
           heading: 'Deletion Failed',

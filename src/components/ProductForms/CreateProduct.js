@@ -36,7 +36,7 @@ class CreateProduct extends Component {
         message: messages.createProductSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/index-products'))
       .catch(error => {
         this.setState({ productName: '', productDescription: '', productPrice: '', productClass: '', productCatagory: '', productImages: '' })
         msgAlert({

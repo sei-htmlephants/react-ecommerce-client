@@ -32,7 +32,7 @@ class CreatePurchase extends Component {
         message: messages.createPurchaseSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/index-purchases'))
       .catch(error => {
         this.setState({ purchaseProduct: '', productPrice: '' })
         msgAlert({

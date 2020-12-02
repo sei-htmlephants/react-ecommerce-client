@@ -5,7 +5,7 @@ import { showPurchase, updatePurchase } from '../../api/purchases'
 const PurchaseUpdate = (props) => {
   const [purchase, setPurchase] = useState({ purchaseProduct: '', purchasePrice: '' })
   const [updated, setUpdated] = useState(false)
-  const { user, msgAlert, match } = props
+  const { user, msgAlert, match, history } = props
 
   useEffect(() => {
     // show request
@@ -16,7 +16,7 @@ const PurchaseUpdate = (props) => {
         message: 'Check it out',
         variant: 'success'
       }))
-      // .then(() => history.push('/purchases'))
+      .then(() => history.push('/index-purchases'))
       .catch(err => msgAlert({
         heading: 'Purchase Show failed',
         message: 'Error: ' + err.message,

@@ -4,7 +4,7 @@ import { showPurchase, deletePurchase } from '../../api/purchases'
 
 const ShowPurchase = (props) => {
   const [purchase, setPurchase] = useState(null)
-  const { user, msgAlert, match } = props
+  const { user, msgAlert, match, history } = props
   useEffect(() => {
     showPurchase(user, match.params.purchaseId)
       .then(res => {
@@ -36,7 +36,7 @@ const ShowPurchase = (props) => {
           variant: 'success'
         })
       })
-      // .then(() => history.push('/purchases'))
+      .then(() => history.push('/index-purchases'))
       .catch(err => {
         msgAlert({
           heading: 'Deletion Failed',
