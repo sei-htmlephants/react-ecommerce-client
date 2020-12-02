@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { loadStripe } from '@stripe/stripe-js'
 
 import { createPurchase } from '../../api/purchases'
 import messages from '../AutoDismissAlert/messages'
@@ -8,6 +9,8 @@ import messages from '../AutoDismissAlert/messages'
 import Button from 'react-bootstrap/Button'
 
 import './CreatePurchaseStyles.scss'
+
+const stripePromise = loadStripe('pk_test_axNq5LTsIJIZMPAlA6enqySi')
 
 class HiddenCreatePurchase extends Component {
   constructor () {
@@ -18,6 +21,19 @@ class HiddenCreatePurchase extends Component {
       productPrice: ''
     }
   }
+
+  handleClick = async (event) => {
+    const stripe = await stripePromise
+    const response = await fetch('http://localhost:4741/create-session', {
+      method: 'POST'
+    })
+    const session = await response.json()
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id
+    })
+    if (result.error) {
+    }
+  };
 
   onCreatePurchase = event => {
     event.preventDefault()
@@ -63,6 +79,9 @@ class HiddenCreatePurchase extends Component {
         <Button className="Button"
           variant="outline-success"
           type="submit"
+          id="checkout-button"
+          role="link"
+          // onClick={this.handleClick}
         >
               Buy
         </Button>
