@@ -111,8 +111,8 @@ class App extends Component {
             <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
           )} />
 
-          <AuthenticatedRoute user={user} path='/checkout-success' render={({ history }) => (
-            <CheckoutSuccess msgAlert={this.msgAlert} user={user} history={history} />
+          <AuthenticatedRoute user={user} path='/checkout-success' render={() => (
+            <CheckoutSuccess />
           )} />
 
           <Route path='/store' render={() => (
