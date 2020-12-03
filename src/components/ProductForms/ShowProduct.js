@@ -50,8 +50,11 @@ const ShowProduct = (props) => {
         })
       })
   }
+
   return (
     <div>
+      {user.email === 'admin@admin' ? (<Fragment>youree an admin</Fragment>) : (<Fragment>youree a user</Fragment>)}
+
       {product ? (
         <Fragment>
           <Container>
@@ -67,10 +70,14 @@ const ShowProduct = (props) => {
               </Col>
               <Col sm={7}>
                 <p>{product.productDescription}</p>
-                <div>
-                  <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-                  <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
-                </div>
+
+                {user.email === 'admin@admin' ? (
+                  <Fragment>
+                    <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
+                    <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
+                  </Fragment>)
+                  : ('')}
+
               </Col>
             </Row>
           </Container>
