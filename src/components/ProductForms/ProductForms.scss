@@ -8,3 +8,9 @@
   padding: 5px;
 }
 
+.Card:hover{ 
+  .card-title{
+    color: #F45B69;
+    transition: 0.3s;
+  }
+}

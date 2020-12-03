@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import SignInAsGuest from './SignInAsGuest'
-import SignInAsAdmin from './SignInAsAdmin'
+// import SignInAsAdmin from './SignInAsAdmin'
 
 class SignIn extends Component {
   constructor () {
@@ -88,7 +88,7 @@ class SignIn extends Component {
           </Form>
           <Button className="pl-0" variant="link" href="#sign-up">Sign Up</Button>
           <SignInAsGuest msgAlert={msgAlert} setUser={setUser} />
-          <SignInAsAdmin msgAlert={msgAlert} setUser={setUser} />
+          {/* <SignInAsAdmin msgAlert={msgAlert} setUser={setUser} /> */}
         </div>
       </div>
     )
