@@ -33,7 +33,7 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => (
   <Navbar bg="dark" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      products r us
+      cameras-r-us
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
