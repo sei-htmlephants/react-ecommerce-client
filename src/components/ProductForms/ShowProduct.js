@@ -1,10 +1,15 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { showProduct, deleteProduct } from '../../api/products'
+
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+
+import HiddenCreate from '../CreatePurchase/HiddenCreate'
+
 import '../../index.scss'
 
 const ShowProduct = (props) => {
@@ -58,31 +63,32 @@ const ShowProduct = (props) => {
       {product ? (
         <Fragment>
           <Container>
-            <Row className="mt-5">
-              <Col sm={5}>
-                <Container>
-                  <Row>
-                    <Col><img width="100%" src={product.productImages}></img></Col>
-                  </Row>
-                </Container>
-                <h2>{product.productName}</h2>
-                <h2>${product.productPrice}</h2>
-              </Col>
-              <Col sm={7}>
-                <p>{product.productDescription}</p>
-
-                {/* {user.email === 'admin@admin' ? (
-                  <Fragment>
+            <Card key={product._id} className="Card">
+              <Row>
+                <Col sm={6}>
+                  <Card.Img variant="top" src={product.productImages} />
+                </Col>
+                <Col sm={6}>
+                  <Card.Body>
+                    <Card.Title>{product.productName}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">${product.productPrice}</Card.Subtitle>
+                    <Card.Text>
+                      {product.productDescription}
+                    </Card.Text>
+                    <HiddenCreate
+                      user={user}
+                      msgAlert={msgAlert}
+                      history={history}
+                      productPrice={product.productPrice}
+                      purchaseProduct={product.productName}
+                    />
+                    <p></p>
                     <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
                     <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
-                  </Fragment>)
-                  : ('')} */}
-
-                <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-                <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
-
-              </Col>
-            </Row>
+                  </Card.Body>
+                </Col>
+              </Row>
+            </Card>
           </Container>
         </Fragment>
       ) : 'Loading...'}
