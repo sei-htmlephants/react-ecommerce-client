@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { showProduct, deleteProduct } from '../../api/products'
-
+import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const ShowProduct = (props) => {
   const [product, setProduct] = useState(null)
@@ -50,13 +52,23 @@ const ShowProduct = (props) => {
   return (
     <div>
       {product ? (
-        <div>
-          <h2>{product.productName}</h2>
-          <h2>${product.productPrice}</h2>
-          <p>{product.owner}</p>
-          <Button onClick={handleDelete}>Delete</Button>
-          <Button href={'#/product-update/' + product._id}>Update Product</Button>
-        </div>
+        <Fragment>
+          <Container>
+            <Row>
+              <Col sm={4}>
+                <h2>{product.productName}</h2>
+                <h2>${product.productPrice}</h2>
+              </Col>
+              <Col sm={8}>
+                <p>{product.productDescription}</p>
+                <div>
+                  <Button variant="danger" onClick={handleDelete}>Delete</Button>
+                  <Button href={'#/product-update/' + product._id}>Update Product</Button>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </Fragment>
       ) : 'Loading...'}
     </div>
   )
