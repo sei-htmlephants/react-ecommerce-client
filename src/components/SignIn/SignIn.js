@@ -7,6 +7,8 @@ import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+import SignInAsGuest from './SignInAsGuest'
+
 class SignIn extends Component {
   constructor () {
     super()
@@ -47,6 +49,8 @@ class SignIn extends Component {
   render () {
     const { email, password } = this.state
 
+    const { msgAlert, setUser } = this.props
+
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
@@ -78,9 +82,11 @@ class SignIn extends Component {
               variant="primary"
               type="submit"
             >
-              Submit
+              Sign In
             </Button>
           </Form>
+          <Button className="pl-0" variant="link" href="/#/sign-up">Sign Up</Button>
+          <SignInAsGuest msgAlert={msgAlert} setUser={setUser} />
         </div>
       </div>
     )

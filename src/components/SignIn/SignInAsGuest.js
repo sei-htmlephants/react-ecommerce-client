@@ -42,19 +42,15 @@ class SignIn extends Component {
 
   render () {
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Sign In</h3>
-          <Form onSubmit={this.onSignIn}>
-            <Button
-              variant="primary"
-              type="submit"
-            >
-              Sign In As Guest
-            </Button>
-          </Form>
-        </div>
-      </div>
+      <Form onSubmit={this.onSignIn}>
+        <Button
+          variant="link"
+          type="submit"
+          className="pl-0"
+        >
+          Sign In As Guest
+        </Button>
+      </Form>
     )
   }
 }

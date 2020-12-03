@@ -85,7 +85,7 @@ class HiddenCreatePurchase extends Component {
           variant="outline-success"
           onClick={this.redirectToSignIn}
         >
-            Buy
+            Sign-in to See More
         </Button>
 
       </form>

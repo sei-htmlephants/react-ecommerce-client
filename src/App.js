@@ -9,7 +9,7 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-import SignInAsGuest from './components/SignIn/SignInAsGuest'
+// import SignInAsGuest from './components/SignIn/SignInAsGuest'
 import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
@@ -77,7 +77,7 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <Fragment>
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-              <SignInAsGuest msgAlert={this.msgAlert} setUser={this.setUser} />
+              {/* <SignInAsGuest msgAlert={this.msgAlert} setUser={this.setUser} /> */}
             </Fragment>
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
