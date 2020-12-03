@@ -17,6 +17,22 @@ export const createPurchase = (form, user) => {
   })
 }
 
+export const stripePurchase = (purchaseProduct, productPrice, user) => {
+  return axios({
+    method: 'POST',
+    url: apiUrl + '/purchases',
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    },
+    data: {
+      purchase: {
+        purchaseProduct: purchaseProduct,
+        productPrice: productPrice
+      }
+    }
+  })
+}
+
 export const indexPurchases = user => {
   return axios({
     url: apiUrl + '/purchases',
