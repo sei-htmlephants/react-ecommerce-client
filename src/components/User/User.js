@@ -30,7 +30,7 @@ class User extends Component {
         <h1>{user.email}&apos;s Settings</h1>
         <Button variant="warning" href='#change-password'>Change Password</Button>{' '}
         <Button variant="danger" href='#sign-out'>Sign Out</Button>{' '}
-        <Button variant="primary" href='#index-purchases'>See Purchase History</Button>{' '}
+        <Button variant="info" href='#index-purchases'>See Purchase History</Button>{' '}
       </Fragment>
     )
   }

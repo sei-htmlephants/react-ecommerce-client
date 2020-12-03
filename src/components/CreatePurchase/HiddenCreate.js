@@ -29,7 +29,7 @@ class HiddenCreatePurchase extends Component {
     if (!user) {
       buyButtonJsx =
         <Button className="Button"
-          variant="outline-success"
+          variant="outline-info"
           onClick={this.redirectToSignIn}
         >
             Sign-in to See More

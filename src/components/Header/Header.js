@@ -11,16 +11,16 @@ const authenticatedOptions = (
     {/* <Nav.Link href="#index-purchases">purchase history</Nav.Link> */}
 
     {/* <Nav.Link href="#create-product">create product test</Nav.Link> */}
-    <Nav.Link href="#index-products">product list</Nav.Link>
+    <Nav.Link href="#index-products">Product List</Nav.Link>
 
-    <Nav.Link href="#user">user</Nav.Link>
+    <Nav.Link href="#user">User</Nav.Link>
   </Fragment>
 )
 
 const unauthenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#sign-up">sign up</Nav.Link>
-    <Nav.Link href="#sign-in">sign in</Nav.Link>
+    <Nav.Link href="#sign-up">Sign Up</Nav.Link>
+    <Nav.Link href="#sign-in">Sign In</Nav.Link>
   </Fragment>
 )
 
@@ -33,7 +33,7 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => (
   <Navbar bg="dark" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      cameras-r-us
+      Reactive Cameras
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
