@@ -20,6 +20,7 @@ import ShowProduct from './components/ProductForms/ShowProduct'
 import UpdateProduct from './components/ProductForms/UpdateProduct'
 // import StoreFront from './components/StoreFront/StoreFront'
 import CheckoutSuccess from './components/CreatePurchase/CheckoutSuccess'
+import User from './components/User/User'
 
 class App extends Component {
   constructor () {
@@ -109,6 +110,10 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/product-update/:productId' render={({ match, history }) => (
             <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/user' render={() => (
+            <User user={user} />
           )} />
 
           <AuthenticatedRoute user={user} path='/checkout-success' render={() => (

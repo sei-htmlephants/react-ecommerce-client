@@ -4,14 +4,16 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#change-password">change password</Nav.Link>
-    <Nav.Link href="#sign-out">sign out</Nav.Link>
+    {/* <Nav.Link href="#change-password">change password</Nav.Link>
+    <Nav.Link href="#sign-out">sign out</Nav.Link> */}
 
     {/* <Nav.Link href="#create-purchase">create purchase test</Nav.Link> */}
-    <Nav.Link href="#index-purchases">purchase history</Nav.Link>
+    {/* <Nav.Link href="#index-purchases">purchase history</Nav.Link> */}
 
     {/* <Nav.Link href="#create-product">create product test</Nav.Link> */}
     <Nav.Link href="#index-products">product list</Nav.Link>
+
+    <Nav.Link href="#user">user</Nav.Link>
   </Fragment>
 )
 
