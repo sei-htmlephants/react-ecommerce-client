@@ -48,13 +48,13 @@ class IndexPurchases extends Component {
     } else {
       purchaseJsx = this.state.purchases.map(purchase => (
 
-        <Card key={purchase._id} style={{ width: '24rem' }}>
-          <Card.Header>Your purchase on {purchase.createdAt.slice(0, -14)}</Card.Header>
+        <Card key={purchase._id} className="mb-2" style={{ width: '100%' }}>
+          <Card.Header>Purchase on {purchase.createdAt.slice(0, -14)}</Card.Header>
           <Card.Body>
             <Card.Title>{purchase.purchaseProduct}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">${purchase.productPrice}</Card.Subtitle>
             <Card.Text>
-            You last updated this purchase on: {purchase.createdAt.slice(0, -14)}
+            Purchase last updated on: {purchase.createdAt.slice(0, -14)}
             </Card.Text>
             {/* <footer className="blockquote-footer">
                 You last updated this purchase on: {purchase.createdAt.slice(0, -14)}

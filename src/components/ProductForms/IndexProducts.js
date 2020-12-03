@@ -114,7 +114,7 @@ class IndexProducts extends Component {
             <Card.Text>
               {product.productDescription}
             </Card.Text>
-            <Button className="Button" variant="outline-primary" href={'#products/' + product._id}>See More</Button>
+            <Button className="Button" variant="outline-info" href={'#products/' + product._id}>See More</Button>
             <HiddenCreate
               user={this.props.user}
               msgAlert={this.props.msgAlert}
@@ -130,7 +130,7 @@ class IndexProducts extends Component {
 
     return (
       <div>
-        <h1>Products List</h1>
+        <h1 className="display-2 text-dark">Latest Drops</h1>
         <CardColumns>
           {productJsx}
         </CardColumns>

@@ -1,22 +1,89 @@
-@import '~bootstrap/scss/bootstrap';
-
 // body {
-//   background-color: #BED3AB;
+//   background-color: #FBF8F2;
 // }
 
+// https://stackoverflow.com/questions/38792005/how-to-change-the-bootstrap-primary-color
+// set colors before importing bootstrap
+
+
+// $info: #596e79;
+// $white: #fff;
+// $dark: #596e79;
+// $blue: #596e79;
+// $green: #C7b198;
+
+// $info: #30475e;
+// $white: #fff;
+// $dark: #222831;
+// $blue: #222831;
+// $green: #f05454;
+// $red: #f05454;
+// $yellow: #e8e8e8;
+
+// $info: #3A4F41;
+// $white: #fff;
+// $dark: #3A4F41;
+// $blue: #3A4F41;
+// $green: #B9314F;
+// $red: #B9314F;
+// $yellow: #DEC3BE;
+
+// $info: #420039;
+// $white: #fff;
+// $dark: #420039;
+// $blue: #12355B;
+// $green: #FF570A;
+// $red: #D72638;
+// $yellow: #D72638;
+
+$info: #456990;
+$white: #fff;
+$dark: #114B5F;
+$blue: #95B3B9;
+$green: #F45B69;
+$red: #6B2737;
+
+
+@import '~bootstrap/scss/bootstrap';
+
 body {
-  font-weight: bold;
+  background-color: #FFFFFF;;
 }
 
-h1, h3 {
-  font-weight: bold;
-}
+// $colors: (
+//   "blue": $blue,
+//   "indigo": $indigo,
+//   "purple": $purple,
+//   "pink": $pink,
+//   "red": $red,
+//   "orange": $orange,
+//   "yellow": $yellow,
+//   "green": $green,
+//   "teal": $teal,
+//   "cyan": $cyan,
+//   "white": $white,
+//   "gray": $gray-600,
+//   "gray-dark": $gray-800
+// ) !default;
 
-#nav.navbar.navbar-expand-md.navbar-dark.bg-primary {
-  background-color: cornflowerblue;
-}
 
-#cardTitle {
-  font-weight: bold;
-}
+// h1, h3 {
+//   font-weight: bold;
+// }
+
+// #cardTitle {
+//   font-weight: bold;
+// }
+
+// .navbar {
+//   // font-weight: 600;
+//   color: #17a2b8;
+// }
+
+
+// h1 {
+//   font-weight: 600;
+//   font-size: 3rem;
+//   margin-top: 10px;
+// }
 

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import { showProduct, updateProduct } from '../../api/products'
 
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 const ProductUpdate = (props) => {
   const [product, setProduct] = useState({ productProduct: '', productPrice: '' })
   const [updated, setUpdated] = useState(false)
@@ -11,11 +14,11 @@ const ProductUpdate = (props) => {
     // show request
     showProduct(user, match.params.productId)
       .then(res => setProduct(res.data.product))
-      .then(() => msgAlert({
-        heading: 'Product Show Success',
-        message: 'Check it out',
-        variant: 'success'
-      }))
+      // .then(() => msgAlert({
+      //   heading: 'Product Show Success',
+      //   message: 'Check it out',
+      //   variant: 'success'
+      // }))
       .catch(err => msgAlert({
         heading: 'Product Show failed',
         message: 'Error: ' + err.message,
@@ -58,29 +61,36 @@ const ProductUpdate = (props) => {
   return (
     <React.Fragment>
       <h1>Update Product Information</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Product"
-          value={product.productName}
-          onChange={handleChange}
-          name="productName"
-        />
-
-        <input
-          placeholder="Enter product's description"
-          value={product.productDescription}
-          onChange={handleChange}
-          name="productDescription"
-        />
-
-        <input
-          placeholder="Product Image"
-          value={product.productImages}
-          onChange={handleChange}
-          name="productImages"
-        />
-        <button type="submit">Update Product</button>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="product">
+          <Form.Label>Product Name</Form.Label>
+          <Form.Control
+            placeholder="Product"
+            value={product.productName}
+            onChange={handleChange}
+            name="productName"
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Product Description</Form.Label>
+          <Form.Control
+            placeholder="Enter product's description"
+            value={product.productDescription}
+            onChange={handleChange}
+            name="productDescription"
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Product Image URL</Form.Label>
+          <Form.Control
+            placeholder="Product Image"
+            value={product.productImages}
+            onChange={handleChange}
+            name="productImages"
+          />
+        </Form.Group>
+        <Button variant='primary' type="submit">Update Product</Button>
+      </Form>
     </React.Fragment>
   )
 }
