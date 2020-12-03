@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import SignInAsGuest from '../SignIn/SignInAsGuest'
-import SignInAsAdmin from './SignInAsAdmin'
+import SignInAsAdmin from '../SignIn/SignInAsAdmin'
 
 class SignUp extends Component {
   constructor () {
