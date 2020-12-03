@@ -20,7 +20,7 @@ class IndexPurchases extends Component {
     indexPurchases(user)
 
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({ purchases: res.data.purchases })
       })
 
