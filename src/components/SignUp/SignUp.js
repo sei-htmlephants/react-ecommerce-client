@@ -97,7 +97,7 @@ class SignUp extends Component {
               Submit
             </Button>
           </Form>
-          <Button className="pl-0" variant="link" href="/#/sign-in">Sign In</Button>
+          <Button className="pl-0" variant="link" href="#sign-in">Sign In</Button>
           <SignInAsGuest msgAlert={msgAlert} setUser={setUser} />
         </div>
       </div>

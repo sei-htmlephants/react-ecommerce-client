@@ -55,7 +55,7 @@ const ShowPurchase = (props) => {
           <h2>${purchase.productPrice}</h2>
           <p>{purchase.owner}</p>
           <Button onClick={handleDelete}>Delete</Button>
-          <Button href={'#/purchase-update/' + purchase._id}>Update Purchase</Button>
+          <Button href={'#purchase-update/' + purchase._id}>Update Purchase</Button>
         </div>
       ) : 'Loading...'}
     </div>
