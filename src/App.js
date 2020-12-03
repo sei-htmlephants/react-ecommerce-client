@@ -19,7 +19,7 @@ import IndexProduct from './components/ProductForms/IndexProducts'
 import ShowProduct from './components/ProductForms/ShowProduct'
 import UpdateProduct from './components/ProductForms/UpdateProduct'
 // import StoreFront from './components/StoreFront/StoreFront'
-import CheckoutSuccess from './components/CreatePurchase/CheckoutSuccess'
+// import CheckoutSuccess from './components/CreatePurchase/CheckoutSuccess'
 import User from './components/User/User'
 
 class App extends Component {
@@ -116,9 +116,9 @@ class App extends Component {
             <User user={user} />
           )} />
 
-          <AuthenticatedRoute user={user} path='/checkout-success' render={() => (
+          {/* <AuthenticatedRoute user={user} path='/checkout-success' render={() => (
             <CheckoutSuccess />
-          )} />
+          )} /> */}
 
           {/* <Route path='/store' render={() => (
             <StoreFront msgAlert={this.msgAlert} />
