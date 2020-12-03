@@ -32,7 +32,7 @@ class CreateProduct extends Component {
 
     createProduct(this.state, user)
       .then(() => msgAlert({
-        heading: 'Create Product Success',
+        heading: 'Poduct Successfully Created!',
         message: messages.createProductSuccess,
         variant: 'success'
       }))

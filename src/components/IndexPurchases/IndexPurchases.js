@@ -24,11 +24,11 @@ class IndexPurchases extends Component {
         this.setState({ purchases: res.data.purchases })
       })
 
-      .then(() => msgAlert({
-        heading: 'Index Purchases Success',
-        message: messages.indexPurchasesSuccess,
-        variant: 'success'
-      }))
+    // .then(() => msgAlert({
+    //   heading: 'Index Purchases Success',
+    //   message: messages.indexPurchasesSuccess,
+    //   variant: 'success'
+    // }))
 
       .catch(error => {
         msgAlert({

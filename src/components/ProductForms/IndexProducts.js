@@ -59,11 +59,11 @@ class IndexProducts extends Component {
         this.setState({ products: res.data.products })
       })
 
-      .then(() => msgAlert({
-        heading: 'Index Products Success',
-        message: messages.indexProductsSuccess,
-        variant: 'success'
-      }))
+    // .then(() => msgAlert({
+    //   heading: 'Index Products Success',
+    //   message: messages.indexProductsSuccess,
+    //   variant: 'success'
+    // }))
 
       .catch(error => {
         msgAlert({
@@ -75,11 +75,34 @@ class IndexProducts extends Component {
   }
 
   render () {
+    const { user } = this.props
     let productJsx
     if (!this.state.products) {
       productJsx = 'Loading...'
     } else if (this.state.products.length === 0) {
       productJsx = 'No products to display :('
+    } else if (!user) {
+      productJsx = this.state.products.map(product => (
+
+        <Card key={product._id} className="Card">
+          <Card.Img variant="top" src={product.productImages} />
+          <Card.Body>
+            <Card.Title>{product.productName}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">${product.productPrice}</Card.Subtitle>
+            <Card.Text>
+              {product.productDescription}
+            </Card.Text>
+            <HiddenCreate
+              user={this.props.user}
+              msgAlert={this.props.msgAlert}
+              history={this.props.history}
+              productPrice={product.productPrice}
+              purchaseProduct={product.productName}
+            />
+          </Card.Body>
+          <Card.Footer>Updated on {product.createdAt.slice(0, -14)}</Card.Footer>
+        </Card>
+      ))
     } else {
       productJsx = this.state.products.map(product => (
 
@@ -102,7 +125,6 @@ class IndexProducts extends Component {
           </Card.Body>
           <Card.Footer>Updated on {product.createdAt.slice(0, -14)}</Card.Footer>
         </Card>
-
       ))
     }
 

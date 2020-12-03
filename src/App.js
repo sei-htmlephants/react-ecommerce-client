@@ -9,7 +9,7 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-import SignInAsGuest from './components/SignIn/SignInAsGuest'
+// import SignInAsGuest from './components/SignIn/SignInAsGuest'
 import CreatePurchase from './components/CreatePurchase/CreatePurchase'
 import IndexPurchases from './components/IndexPurchases/IndexPurchases'
 import ShowPurchase from './components/ShowPurchase/ShowPurchase'
@@ -18,8 +18,9 @@ import CreateProduct from './components/ProductForms/CreateProduct'
 import IndexProduct from './components/ProductForms/IndexProducts'
 import ShowProduct from './components/ProductForms/ShowProduct'
 import UpdateProduct from './components/ProductForms/UpdateProduct'
-import StoreFront from './components/StoreFront/StoreFront'
+// import StoreFront from './components/StoreFront/StoreFront'
 import CheckoutSuccess from './components/CreatePurchase/CheckoutSuccess'
+import User from './components/User/User'
 
 class App extends Component {
   constructor () {
@@ -76,7 +77,7 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <Fragment>
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-              <SignInAsGuest msgAlert={this.msgAlert} setUser={this.setUser} />
+              {/* <SignInAsGuest msgAlert={this.msgAlert} setUser={this.setUser} /> */}
             </Fragment>
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
@@ -111,13 +112,17 @@ class App extends Component {
             <UpdateProduct msgAlert={this.msgAlert} user={user} match={match} history={history} />
           )} />
 
+          <AuthenticatedRoute user={user} path='/user' render={() => (
+            <User user={user} />
+          )} />
+
           <AuthenticatedRoute user={user} path='/checkout-success' render={() => (
             <CheckoutSuccess />
           )} />
 
-          <Route path='/store' render={() => (
+          {/* <Route path='/store' render={() => (
             <StoreFront msgAlert={this.msgAlert} />
-          )} />
+          )} /> */}
         </main>
       </Fragment>
     )

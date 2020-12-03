@@ -4,14 +4,16 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#change-password">change password</Nav.Link>
-    <Nav.Link href="#sign-out">sign out</Nav.Link>
+    {/* <Nav.Link href="#change-password">change password</Nav.Link>
+    <Nav.Link href="#sign-out">sign out</Nav.Link> */}
 
-    <Nav.Link href="#create-purchase">create purchase test</Nav.Link>
-    <Nav.Link href="#index-purchases">purchase history</Nav.Link>
+    {/* <Nav.Link href="#create-purchase">create purchase test</Nav.Link> */}
+    {/* <Nav.Link href="#index-purchases">purchase history</Nav.Link> */}
 
-    <Nav.Link href="#create-product">create product test</Nav.Link>
+    {/* <Nav.Link href="#create-product">create product test</Nav.Link> */}
     <Nav.Link href="#index-products">product list</Nav.Link>
+
+    <Nav.Link href="#user">user</Nav.Link>
   </Fragment>
 )
 
@@ -22,11 +24,11 @@ const unauthenticatedOptions = (
   </Fragment>
 )
 
-const alwaysOptions = (
-  <Fragment>
-    <Nav.Link href="#/home">home</Nav.Link>
-  </Fragment>
-)
+// const alwaysOptions = (
+//   <Fragment>
+//     <Nav.Link href="#/home">home</Nav.Link>
+//   </Fragment>
+// )
 
 const Header = ({ user }) => (
   <Navbar bg="dark" variant="dark" expand="md">
@@ -37,7 +39,7 @@ const Header = ({ user }) => (
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
         { user && <span className="navbar-text mr-2">Welcome, {user.email}</span>}
-        { alwaysOptions }
+        {/* { alwaysOptions } */}
         { user ? authenticatedOptions : unauthenticatedOptions }
       </Nav>
     </Navbar.Collapse>
