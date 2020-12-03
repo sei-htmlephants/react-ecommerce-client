@@ -114,7 +114,7 @@ class IndexProducts extends Component {
             <Card.Text>
               {product.productDescription}
             </Card.Text>
-            <Button className="Button" variant="outline-primary" href={'/#/products/' + product._id}>See More</Button>
+            <Button className="Button" variant="outline-primary" href={'#products/' + product._id}>See More</Button>
             <HiddenCreate
               user={this.props.user}
               msgAlert={this.props.msgAlert}

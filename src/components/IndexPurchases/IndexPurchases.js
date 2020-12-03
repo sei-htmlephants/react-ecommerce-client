@@ -59,7 +59,7 @@ class IndexPurchases extends Component {
             {/* <footer className="blockquote-footer">
                 You last updated this purchase on: {purchase.createdAt.slice(0, -14)}
             </footer> */}
-            <Button variant="outline-primary" href={'/#/purchases/' + purchase._id}>See More</Button>
+            <Button variant="outline-primary" href={'#purchases/' + purchase._id}>See More</Button>
           </Card.Body>
         </Card>
 

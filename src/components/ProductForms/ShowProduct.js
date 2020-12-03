@@ -69,7 +69,7 @@ const ShowProduct = (props) => {
                 <p>{product.productDescription}</p>
                 <div>
                   <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-                  <Button href={'#/product-update/' + product._id}>Update Product</Button>{' '}
+                  <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
                 </div>
               </Col>
             </Row>
