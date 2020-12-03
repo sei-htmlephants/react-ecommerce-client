@@ -54,16 +54,21 @@ const ShowProduct = (props) => {
       {product ? (
         <Fragment>
           <Container>
-            <Row>
-              <Col sm={4}>
+            <Row className="mt-5">
+              <Col sm={5}>
+                <Container>
+                  <Row>
+                    <Col><img width="100%" src={product.productImages}></img></Col>
+                  </Row>
+                </Container>
                 <h2>{product.productName}</h2>
                 <h2>${product.productPrice}</h2>
               </Col>
-              <Col sm={8}>
+              <Col sm={7}>
                 <p>{product.productDescription}</p>
                 <div>
-                  <Button variant="danger" onClick={handleDelete}>Delete</Button>
-                  <Button href={'#/product-update/' + product._id}>Update Product</Button>
+                  <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
+                  <Button href={'#/product-update/' + product._id}>Update Product</Button>{' '}
                 </div>
               </Col>
             </Row>
