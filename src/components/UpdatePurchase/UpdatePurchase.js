@@ -14,11 +14,11 @@ const PurchaseUpdate = (props) => {
     // show request
     showPurchase(user, match.params.purchaseId)
       .then(res => setPurchase(res.data.purchase))
-      .then(() => msgAlert({
-        heading: 'Purchase Show Success',
-        message: 'Check it out',
-        variant: 'success'
-      }))
+      // .then(() => msgAlert({
+      //   heading: 'Purchase Show Success',
+      //   message: 'Check it out',
+      //   variant: 'success'
+      // }))
       .catch(err => msgAlert({
         heading: 'Purchase Show failed',
         message: 'Error: ' + err.message,

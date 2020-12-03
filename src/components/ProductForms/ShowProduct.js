@@ -21,13 +21,13 @@ const ShowProduct = (props) => {
         console.log(res)
         setProduct(res.data.product)
       })
-      .then(() => {
-        msgAlert({
-          heading: 'Show Product Success',
-          message: 'Here\'s your product',
-          variant: 'success'
-        })
-      })
+      // .then(() => {
+      //   msgAlert({
+      //     heading: 'Show Product Success',
+      //     message: 'Here\'s your product',
+      //     variant: 'success'
+      //   })
+      // })
       .catch(err => {
         msgAlert({
           heading: 'Show Product Failed',

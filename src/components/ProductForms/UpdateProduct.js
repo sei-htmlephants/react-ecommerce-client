@@ -14,11 +14,11 @@ const ProductUpdate = (props) => {
     // show request
     showProduct(user, match.params.productId)
       .then(res => setProduct(res.data.product))
-      .then(() => msgAlert({
-        heading: 'Product Show Success',
-        message: 'Check it out',
-        variant: 'success'
-      }))
+      // .then(() => msgAlert({
+      //   heading: 'Product Show Success',
+      //   message: 'Check it out',
+      //   variant: 'success'
+      // }))
       .catch(err => msgAlert({
         heading: 'Product Show failed',
         message: 'Error: ' + err.message,

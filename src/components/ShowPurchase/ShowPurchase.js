@@ -13,13 +13,13 @@ const ShowPurchase = (props) => {
         console.log(res)
         setPurchase(res.data.purchase)
       })
-      .then(() => {
-        msgAlert({
-          heading: 'Show Purchase Success',
-          message: 'Here\'s your purchase!',
-          variant: 'success'
-        })
-      })
+      // .then(() => {
+      //   msgAlert({
+      //     heading: 'Show Purchase Success',
+      //     message: 'Here\'s your purchase!',
+      //     variant: 'success'
+      //   })
+      // })
       .catch(err => {
         msgAlert({
           heading: 'Show Purchase Failed',
