@@ -38,13 +38,13 @@ The data is stored in a document database (MongoDB) due to it's relative simplic
 #### Back-End
 
 - Node.js
-  - Express
+- Express
 - MongoDB
-  - Mongoose
-  - MongoDB Atlas
+- Mongoose
+- MongoDB Atlas
 
 ## Future Development
-   need edit here
+
 - Setting reminders
 - Assigning Users
 - User Roles
