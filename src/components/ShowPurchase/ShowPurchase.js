@@ -10,7 +10,6 @@ const ShowPurchase = (props) => {
   useEffect(() => {
     showPurchase(user, match.params.purchaseId)
       .then(res => {
-        console.log(res)
         setPurchase(res.data.purchase)
       })
       // .then(() => {
