@@ -55,7 +55,7 @@ class IndexProducts extends Component {
     indexProducts(user)
 
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({ products: res.data.products })
       })
 

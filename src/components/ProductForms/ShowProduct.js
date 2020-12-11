@@ -18,7 +18,7 @@ const ShowProduct = (props) => {
   useEffect(() => {
     showProduct(user, match.params.productId)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         setProduct(res.data.product)
       })
       // .then(() => {
