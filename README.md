@@ -1,8 +1,7 @@
 
-<h1 style="text-align: center;">E-Commerce HTMLephants</h1>
+# React E-Commerce by HTMLephants
 
-
-An E-commerce site with product listing, purchase function with stripe. 
+A React e-commerce app selling cameras with authentication, product CRUD, Stripe payment processing, purchase history, and purchase history managment.
 
 ## Important Links
 
@@ -10,11 +9,21 @@ An E-commerce site with product listing, purchase function with stripe.
 - [API Repo](https://github.com/sei-htmlephants/ecommerce-api)
 - [Heroku Hosted API](https://thawing-beach-03969.herokuapp.com)
 
-## Development Plan
-Jira, scrum, github, agile
-collaborative programming projects. 
+## Guide
 
-The data is stored in a document database (MongoDB) due to it's relative simplicity. The back-end routes and schemas are viewable [here](https://github.com/sei-htmlephants/ecommerce-api). 
+Visit the [demo](https://sei-htmlephants.github.io/react-ecommerce-client). You will not be allowed to purchase any items until you log in. You may log in as a guest user for demo purposes. Buy items with the default Stripe demo card number of `4242 4242 4242 4242` , any valid expiration date, and any three digit CVV.
+
+In order to edit products, you will have to login as the owner of those products. In this demo that user is `a@a` (password: `a`).
+
+To check purchase history, go to your user profile and there will be a link. You may edit titles or delete purchases, but you cannot edit prices paid.
+
+## Development Plan
+
+This project was planned using Jira. MVP user stories were established and given story points. We completed stories in daily sprints using Scrum.
+
+Each team-member worked off `git` feature branches, and pushed to the `dev` branch on feature completion. Changes were reviewed and pulled up to the `main` branch before deployment.
+
+The data is stored in a document database (MongoDB) due to it's relative simplicity. The back-end routes and schemas are viewable [here](https://github.com/sei-htmlephants/ecommerce-api).
 
 ## User Stories
 
@@ -29,27 +38,26 @@ The data is stored in a document database (MongoDB) due to it's relative simplic
 
 ## Technologies Used
 
-#### Front-End
+### Front-End
 
 - React
 - HTML/CSS/Javascript
 - Bootstrap
 
-#### Back-End
+### Back-End
 
 - Node.js
 - Express
 - MongoDB
 - Mongoose
 - MongoDB Atlas
+- Heroku
 
 ## Future Development
 
-- Setting reminders
-- Assigning Users
-- User Roles
-- Allowing certain users to tag any issue
-- Elegant UI for editing comments
+- Image uploads
+- Shopping cart
+- User image forum with voting
 
 ## Wireframe and More
 
