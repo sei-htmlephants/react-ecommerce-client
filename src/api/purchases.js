@@ -35,6 +35,16 @@ export const stripePurchase = (purchaseProduct, productPrice, user) => {
 
 export const indexPurchases = user => {
   return axios({
+    url: apiUrl + '/purchases-user',
+    method: 'GET',
+    headers: {
+      'Authorization': `Token token=${user.token}`
+    }
+  })
+}
+
+export const indexAllPurchases = user => {
+  return axios({
     url: apiUrl + '/purchases',
     method: 'GET',
     headers: {
