@@ -18,16 +18,8 @@ const ShowProduct = (props) => {
   useEffect(() => {
     showProduct(user, match.params.productId)
       .then(res => {
-        // console.log(res)
         setProduct(res.data.product)
       })
-      // .then(() => {
-      //   msgAlert({
-      //     heading: 'Show Product Success',
-      //     message: 'Here\'s your product',
-      //     variant: 'success'
-      //   })
-      // })
       .catch(err => {
         msgAlert({
           heading: 'Show Product Failed',
@@ -58,8 +50,6 @@ const ShowProduct = (props) => {
 
   return (
     <div>
-      {/* {user.email === 'admin@admin' ? (<Fragment>youre an admin</Fragment>) : (<Fragment>youre a user</Fragment>)} */}
-
       {product ? (
         <Container>
           <Card key={product._id} className="Card">
@@ -82,8 +72,12 @@ const ShowProduct = (props) => {
                     purchaseProduct={product.productName}
                   />
                   <p></p>
-                  <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-                  <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
+                  {(user._id === product.owner) ? (
+                    <div>
+                      <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
+                      <Button href={'#product-update/' + product._id}>Update Product</Button>{' '}
+                    </div>
+                  ) : ''}
                 </Card.Body>
               </Col>
             </Row>
