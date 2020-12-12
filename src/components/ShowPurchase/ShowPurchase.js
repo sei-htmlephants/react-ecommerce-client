@@ -13,13 +13,6 @@ const ShowPurchase = (props) => {
         // console.log(res)
         setPurchase(res.data.purchase)
       })
-      // .then(() => {
-      //   msgAlert({
-      //     heading: 'Show Purchase Success',
-      //     message: 'Here\'s your purchase!',
-      //     variant: 'success'
-      //   })
-      // })
       .catch(err => {
         msgAlert({
           heading: 'Show Purchase Failed',
@@ -52,7 +45,6 @@ const ShowPurchase = (props) => {
     <div>
       {purchase ? (
         <div>
-
           <Card key={purchase._id} className="mb-2 mt-2" style={{ width: '100%' }}>
             <Card.Header>Purchase on {purchase.createdAt.slice(0, -14)}</Card.Header>
             <Card.Body>
@@ -60,27 +52,15 @@ const ShowPurchase = (props) => {
               <Card.Subtitle className="mb-2 text-muted">${purchase.productPrice}</Card.Subtitle>
               <Card.Text>
             Purchase last updated on: {purchase.createdAt.slice(0, -14)}
-            Purchase Owner ID: {purchase.owner}
               </Card.Text>
-              <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-              <Button href={'#purchase-update/' + purchase._id}>Update Purchase</Button>{' '}
+              {(user._id === purchase.owner) ? (
+                <div>
+                  <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
+                  <Button href={'#purchase-update/' + purchase._id}>Update Purchase</Button>{' '}
+                </div>
+              ) : ''}
             </Card.Body>
           </Card>
-          {/*
-          <h2>{purchase.purchaseProduct}</h2>
-          <h2>${purchase.productPrice}</h2>
-          <p>{purchase.owner}</p> */}
-
-          {/* {user.email === 'admin@admin' ? (
-            <Fragment>
-              <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-              <Button href={'#purchase-update/' + purchase._id}>Update Purchase</Button>{' '}
-            </Fragment>)
-            : ('')} */}
-          {/*
-          <Button variant="danger" onClick={handleDelete}>Delete</Button>{' '}
-          <Button href={'#purchase-update/' + purchase._id}>Update Purchase</Button>{' '} */}
-
         </div>
       ) : 'Loading...'}
     </div>
